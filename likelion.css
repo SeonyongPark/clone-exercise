@@ -105,14 +105,16 @@ ul li{
 .ul_div h6{
     color: black;
 }
-.button_div input{
+.button_div{
     background-color: #f5a43b;
     font-size: 20px;
     font-style:initial;
     color: white;
     width: 200px;
-    height: 50px;
+    height: 40px;
     border-radius: 100px;
+    text-align: center;
+    padding-top: 1%;
 }
 
 .icon{
@@ -129,3 +131,49 @@ a{
     color: white;
     text-decoration: none;
 }
+
+.container1{
+    padding-left: 5%;
+    display:none;
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    z-index:10000;
+    position:absolute; top: 40%; left: 30%;
+}
+.input1{
+    font-size: 20px;
+    width:250px;
+    height: 30px;
+}
+.input2{
+    position: relative;
+    top: -3.5px;
+    width: 80px;
+    height: 35px;
+    font-size: 10px;
+    background-color: #f5a43b;
+    color: white;
+    border: white;
+}
+#mask {  
+    position:absolute;  
+    left:0;
+    top:0;
+    z-index:9000;  
+    background-color:#000;  
+    display:none;  }
+.window{
+    display: none;
+    position:absolute;  
+    left:30%;
+    top:40%;
+    width: 400px;
+    height: 250px;
+    z-index:10000;
+    background-color: white;
+    padding-left: 7%;
+  }
+  .div123{
+      text-align: right;
+  }

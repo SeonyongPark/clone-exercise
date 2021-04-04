@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script language="javascript">
-        function showPopup() { window.open("popup.html", ",","location=0, directories=0,resizable=0,status=0,toolbar=0,menubar=0, width=400,height=200,left=400, top=400, scrollbars=0"
-        ); }
-        </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-latest.js"></script> 
+    <script>
+        function wrapWindowByMask(){
+          //화면의 높이와 너비를 구한다.
+          var maskHeight = $(document).height();  
+          var maskWidth = $(window).width();  
+  
+          //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채운다.
+          $('#mask').css({'width':maskWidth,'height':maskHeight});  
+  
+          //애니메이션 효과 - 일단 1초동안 까맣게 됐다가 80% 불투명도로 간다.
+          $('#mask').fadeIn(1000);      
+          $('#mask').fadeTo("slow",0.8);    
+  
+          //윈도우 같은 거 띄운다.
+          $('.window').show();
+      }
+  
+      $(document).ready(function(){
+          //검은 막 띄우기
+          $('.openMask').click(function(e){
+              e.preventDefault();
+              wrapWindowByMask();
+          });
+  
+          //닫기 버튼을 눌렀을 때
+          $('.window .close').click(function (e) {  
+              //링크 기본동작은 작동하지 않도록 한다.
+              e.preventDefault();  
+              $('#mask, .window').hide();  
+          });       
+  
+          //검은 막을 눌렀을 때
+          $('#mask').click(function () {  
+              $(this).hide();  
+              $('.window').hide();  
+          });      
+      });
+      </script>
     <link rel="stylesheet" href="web3.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
     <link rel="stylesheet" href="likelion.css">
@@ -15,6 +50,7 @@
     <title>Document</title>
 </head>
 <body>
+
     <div class="container">
         <div id = "head">
             <div id = "head_child1">
@@ -57,7 +93,7 @@
                     <div><h3>LEFT</h3></div>
                 </div>
                 <div class = "button_div">
-                    <input type="button" value="지원하기" onclick="showPopup();"></input>
+                    <a href="#" class="openMask">지원하기</a>
                 </div>
             </div>
         </div>
@@ -68,6 +104,18 @@
                 <i class="fa fa-twitter"></i>
             </div>
         </div>
+        <div id = "mask"></div>
+        <div class="window">
+            <div class = "div123">
+                <input type="button" href="#" class="close" value="x" style="color: gray;"/>
+            </div>
+            <h1 style="margin-bottom: 0%;">Welcome</h1>
+            <h5 style="margin-top: 2%;">멋쟁이 사자처럼에 지원해주셔서 감사합니다.</h5>
+            <input type="text" class="input1" value="Enter Email Address">
+            <input type="button" class="input2" value="submit">
+        </div>
     </div>
+
+
 </body>
 </html>
