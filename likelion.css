@@ -172,8 +172,10 @@ a{
     height: 250px;
     z-index:10000;
     background-color: white;
-    padding-left: 7%;
+    padding-left: 5%;
+    border-radius: 10px;
   }
   .div123{
       text-align: right;
+      padding-right: 1%;
   }
