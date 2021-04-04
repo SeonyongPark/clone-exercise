@@ -1,0 +1,131 @@
+body{
+    width: 100%;
+    height: 100%;
+}
+ul li{
+    list-style-type: none;
+    display: inline;
+    padding: 2%;
+    font-size: 12px;
+}
+
+.ulclass{
+    align-self: start;
+    text-align: right;
+    padding-right: 10%;
+}
+.container {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 1fr 10fr 1fr;
+}
+.squard{
+    padding-left: 0%;
+}
+.squard li{
+
+}
+
+#head{
+    background-color:black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#middle{
+    background-color:black;
+}
+#bottom{
+    background-color:black;
+}
+#head_child1{
+    background-color:black;
+}
+#head_child2{
+    background-color:black;
+}
+#head_child1_child{
+    font-style: italic;
+    position: relative;
+    top: -10px;
+    color: white;
+    padding : 0% 0% 0% 10%;
+    width: 100px;
+    height: auto;
+    background-color:black;
+}
+#head_child2_child{
+    position: relative;
+    top: -10px;
+    color: white;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background-color:black;;
+}
+.middle_child{
+    padding-top: 5%;
+    padding-left: 10%;
+    color: white;
+}
+#middle_child_child1{
+
+}
+#p_div{
+    width: 550px;
+}
+#second_p{
+    position: relative;
+    top: -15px;
+}
+.ul_div{
+    width: 592.2px;
+    height: 150px;
+    padding-top: 2%;
+    margin: 0;
+}
+.ul_div div{
+    background-color: white;
+    text-align: center;
+    color: #f5a43b;
+    font-size: 30px;
+    font-style: oblique;
+    width: 100px;
+    height: 100px;
+    float: left;
+    padding-top: 1%;
+    margin-left: 2%;
+    border-radius: 10px;
+}
+.ul_div h3, h6{
+    padding: 1%;
+    padding-right: 10%;
+    margin: 0;
+}
+.ul_div h6{
+    color: black;
+}
+.button_div input{
+    background-color: #f5a43b;
+    font-size: 20px;
+    font-style:initial;
+    color: white;
+    width: 200px;
+    height: 50px;
+    border-radius: 100px;
+}
+
+.icon{
+    padding-left: 10%;
+    font-size: 20px;
+    width: 200px;
+    float: left;
+}
+.icon i{
+    color: white;
+    padding-left: 4%;
+}
+a{
+    color: white;
+    text-decoration: none;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+        }
+        .container {
+            display: grid;
+            width: 100%;
+            height: 100%;
+            grid-template-rows: 1fr 10fr 1fr;
+        }
+        #head{
+            background-color:black;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        #middle{
+            background-color:white;
+            text-align: center;
+        }
+        #head_child1{
+            background-color:black;
+        }
+        #head_child2{
+            background-color:black;
+        }
+        #head_child1_child{
+            font-style: italic;
+            position: relative;
+            top: -10px;
+            color: white;
+            padding : 0% 0% 0% 10%;
+            width: 100px;
+            height: auto;
+            background-color:black;
+        }
+        #head_child2_child{
+            position: relative;
+            top: -10px;
+            color: white;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            background-color:black;;
+        }
+        ul li{
+            list-style-type: none;
+            display: inline;
+            padding: 2%;
+            font-size: 12px;
+        }
+
+        .ulclass{
+            align-self: start;
+            text-align: right;
+            padding-right: 10%;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div id = "head">
+            <div id = "head_child1">
+                <div id = "head_child1_child">
+                    <h3>Like Lion</h3>
+                </div>
+            </div>
+            <div id = "head_child2">
+                <div id = "head_child2_child">
+                    <ul class="ulclass">
+                        <li><a href="likelion.html">Home</a></li>
+                        <li>About</li>
+                        <li><a href="member.html">member</a></li>
+                        <li>Center</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id = "middle">
+            <img src="picture.jpg" style="padding-top: 5%;">
+        </div>
+    </div>
+</body>
+</html>
