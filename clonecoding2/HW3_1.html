@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="web3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <style>
+          .leftCol::before {
+            content: "";
+            width: 70rem;
+            height: 70rem;
+            position: absolute;
+            left: -30%;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            background-color: #f5a43b;
+
+        }
+
+        .container {
+
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+        }
+
+        .title {
+            position: relative;
+
+
+        }
+
+        .righrCol {
+        }
+        .img1{
+
+        }
+        .div1{
+            width: auto;
+            height: 70vh;
+            background-image: url("log.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: relative;
+            top: -5px;
+        }
+        .login {
+        position: relative;
+        left: -200px;
+        align-items: center;
+        text-align: center;
+        margin: 30%;
+        display: flex;
+        flex-direction: column;
+        }
+        .icon-box{
+            background-color: #f0f0f0;
+            border-radius: 80px/80px;
+            height: 40px;
+            width: 250px;
+            display: flex;
+            margin: 5px auto;
+        }
+        .icon{
+            height: 40px;
+            width: 40px;
+            display: flex;
+            position:relative
+        }
+        input{
+            background-color: #f0f0f0; 
+            border: none;
+            position: absolute;
+            top: 25%;
+            left: 50%;
+        }
+        button{
+            width: 200px;
+            height: 40px;
+            background-color:  #f5a43b;
+            border-radius: 80px/80px;
+            border: none;
+            color: #fff;
+            text-align: center;
+        }
+        i{
+            position: absolute;
+            top: 25%;
+            left: 50%;
+        }
+        </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="leftCol">
+            <div class="title">
+                <h3 style="text-align: center;">멋쟁이사자처럼</h3>
+                <p style="text-align: center;">HACK YOUR LIFE 프로그래밍으로 당신의 인생을 바꿔보세요!</p>
+            </div>
+            <div class="div1">
+            </div>
+        </div>
+        <div class="rightCol">
+            <div class="login">
+                <h1>로그인</h1>
+                <form action="POST">
+                    <div class="icon-box">
+                        <div class="icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="icon"><input type="text" id="userid" placeholder="ID" ></div>
+                    </div>
+                    <div class="icon-box">
+                        <div class="icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="icon">
+                            <input type="text" id="userpw" placeholder="PW" >
+                        </div>
+                    </div>
+                </form>
+                <button style="margin: 20px;">LOGIN</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

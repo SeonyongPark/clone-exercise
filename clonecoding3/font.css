@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.body_container {
+    background: #ff766d;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.slide-row {
+    display: flex;
+    width: 3200px;
+    transition: 0.5s;
+}
+
+.slide-col {
+    width: 800px;
+    height: 400px;
+    position: relative;
+}
+
+.user-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+
+.user-img img {
+    height: 100%;
+    border-radius: 10px;
+}
+
+.user-text {
+    background: #2d3a59;
+    width: 520px;
+    height: 270px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    color: #d3d4d6;
+    padding: 45px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.user-text h3 {
+    margin: 35px 0 5px;
+    color: #fff;
+}
+
+.container {
+    width: 800px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.indicator {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: -50px;
+}
+
+.btn {
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    margin: 4px;
+    border-radius: 15px;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.active {
+    width: 45px;
+}
+
+.slide-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.sidebar {
+    height: 340px;
+    width: 60px;
+    background: #fff;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+}
+.icon-box{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px auto;
+}
+
+.side-text{
+    min-width: 0px;
+    height: 100%;
+    background: #2d3a59;
+    margin-right: 5px;
+    line-height: 0;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px 0 0 5px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.icon{
+    min-width: 50px;
+    height: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.icon .fa{
+    font-size: 30px;
+    color: #2d3a59;
+    line-height: 50px;
+}
+
+.icon-box:hover .icon{
+    background: #2d3a59;
+}
+
+.icon-box:hover .icon .fa{
+    color: #fff
+}
+
+.icon-box:hover .slide-text{
+    min-width: 150px;
+}
