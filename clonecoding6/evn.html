@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Tempo Bootstrap Template - Index</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <script>
+      window.onload = function () {
+        var btn = document.querySelector("#btn");
+        btn.onclick = function () {
+          let ID = document.querySelector("#ID");
+          let Name = document.querySelector("#Name");
+          let Address = document.querySelector("#Address");
+          let Phone = document.querySelector("#Phone");
+
+          localStorage.setItem(ID.value, ID.value);
+          localStorage.setItem(Name.value, Name.value);
+          localStorage.setItem("My_Address", Address.value);
+          localStorage.setItem(Address.value, Address.value);
+          localStorage.setItem(Phone.value, Phone.value);
+
+          alert("관심 지역이 등록 되었습니다.");
+          location.href = "./env.html";
+        };
+        var btn1 = document.querySelector("#btn1");
+        btn1.onclick = function () {
+          let ID = document.querySelector("#ID");
+          let Name = document.querySelector("#Name");
+          let Address = document.querySelector("#Address");
+          let Phone = document.querySelector("#Phone");
+
+          localStorage.removeItem(ID.value);
+          localStorage.removeItem(Name.value);
+          localStorage.removeItem(Address.value);
+          localStorage.removeItem(Phone.value);
+          localStorage.removeItem("My_Address");
+
+          alert("관심 지역이 삭제 되었습니다.");
+        };
+      };
+    </script>
+    <!-- =======================================================
+  * Template Name: Tempo - v4.8.0
+  * Template URL: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top bg-dark">
+      <div class="container d-flex align-items-center justify-content-between">
+        <h1 class="logo"><a href="index.html">Homes</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto " href="./index.html">Home</a></li>
+            <li><a class="nav-link scrollto" href="./index.html#info">Info</a></li>
+            <li><a class="nav-link scrollto" href="./index.html#news">News</a></li>
+            <li><a class="nav-link scrollto active" href="./aptlist.html">Find</a></li>
+            <li><a class="nav-link scrollto" href="./signup.html">SignUp</a></li>
+            <li><a class="nav-link scrollto" href="./login.html">Login</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+      <div class="hero-container">
+        <h3>Welcome to <strong>Home</strong></h3>
+        <h1>어떤 집을 찾고 계세요?</h1>
+        <h2>실거래가 확인하고 똑똑하게 집 찾자!</h2>
+        <a href="./aptlist.html" class="btn-get-started scrollto">Get Started</a>
+      </div>
+    </section>
+    <!-- End Hero -->
+
+    <main id="main">
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="section-title">
+            <h2>관심지역 등록</h2>
+            <p>관심있는 지역을 등록해서 찾아보세요!</p>
+          </div>
+
+          <div id="map" style="width: 500px; height: 400px; margin: 0 auto"></div>
+          <script
+            type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=key&libraries=services"
+          ></script>
+          <script>
+            var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+              mapOption = {
+                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                level: 3, // 지도의 확대 레벨
+              };
+
+            // 지도를 생성합니다
+            var map = new kakao.maps.Map(mapContainer, mapOption);
+
+            // 주소-좌표 변환 객체를 생성합니다
+            var geocoder = new kakao.maps.services.Geocoder();
+
+            var loc = localStorage.getItem("My_Address");
+            if (loc == null) {
+              loc = "제주특별자치도 제주시 상대리";
+            }
+
+            // 주소로 좌표를 검색합니다
+            geocoder.addressSearch(loc, function (result, status) {
+              // 정상적으로 검색이 완료됐으면
+              if (status === kakao.maps.services.Status.OK) {
+                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                // 결과값으로 받은 위치를 마커로 표시합니다
+                var marker = new kakao.maps.Marker({
+                  map: map,
+                  position: coords,
+                });
+
+                // 인포윈도우로 장소에 대한 설명을 표시합니다
+                var infowindow = new kakao.maps.InfoWindow({
+                  content:
+                    '<div style="width:150px;text-align:center;padding:6px 0;">관심지역</div>',
+                });
+                infowindow.open(map, marker);
+
+                // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                map.setCenter(coords);
+              }
+            });
+          </script>
+
+          <div class="row mt-5">
+            <div class="col-lg-4">
+              <div class="info">
+                <div class="address">
+                  <i class="bi bi-geo-alt"></i>
+                  <h4>Location:</h4>
+                  <p>A108 Adam Street, New York, NY 535022</p>
+                </div>
+
+                <div class="email">
+                  <i class="bi bi-envelope"></i>
+                  <h4>ID:</h4>
+                  <p>Your ID</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-8 mt-5 mt-lg-0">
+              <form
+                onsubmit="return false;"
+                action="forms/contact.php"
+                method="post"
+                role="form"
+                class="php-email-form"
+              >
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input
+                      type="text"
+                      name="ID"
+                      class="form-control"
+                      id="ID"
+                      placeholder="Your ID"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="Name"
+                      id="Name"
+                      placeholder="Your Name"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="Phone"
+                    id="Phone"
+                    placeholder="Your Phone"
+                    required
+                  />
+                </div>
+                <div class="form-group mt-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="Address"
+                    id="Address"
+                    placeholder="Your Address"
+                    required
+                  />
+                </div>
+                <div class="text-center">
+                  <button id="btn" type="submit">Asign Location</button>
+                  <button id="btn1" type="submit">Delete Location</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="container d-flex flex-column min-vh-100">
+        <div style="height: 70px"></div>
+        <h2 class="ms-1 mt-5 mb-4">관심지역 최근 아파트 매매 정보</h2>
+        <div class="row col-md-12 justify-content-center mb-2">
+          <div class="form-group col-md-2">
+            <select class="form-select bg-secondary text-light w-100" id="sido">
+              <option id = "opt" value=""></option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <select class="form-select bg-dark text-light" id="year"><option value="">2022</option></select>
+          </div>
+          <div class="form-group col-md-2">
+            <select class="form-select bg-dark text-light" id="month">
+              <option value="">01</option>
+            </select>
+          </div>
+        </div>
+        <table class="table table-hover text-center" style="display: none">
+          <tr>
+            <th>아파트이름</th>
+            <th>층</th>
+            <th>면적</th>
+            <th>법정동</th>
+            <th>거래금액</th>
+          </tr>
+          <tbody id="aptlist"></tbody>
+        </table>
+      <script>
+           let lo = localStorage.getItem("My_Address");
+            if (lo == null) {
+              lo = "제주특별자치도 제주시 상대리";
+            } else{
+          let url =
+            "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev";
+          let regCode = lo.split(' ')[1].substr(0, 5);
+          let dealYM = "2022" + "01";
+          let queryParams =
+            encodeURIComponent("serviceKey") +
+            "=" +
+            "key"; /*Service Key*/
+          queryParams +=
+            "&" +
+            encodeURIComponent("LAWD_CD") +
+            "=" +
+            encodeURIComponent("11110"); /*아파트소재 구군*/
+          queryParams +=
+            "&" + encodeURIComponent("DEAL_YMD") + "=" + encodeURIComponent(dealYM); /*조회년월*/
+          queryParams +=
+            "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1"); /*페이지번호*/
+          queryParams +=
+            "&" + encodeURIComponent("numOfRows") + "=" + encodeURIComponent("30"); /*페이지당건수*/
+          console.log(`${url}?${queryParams}`);
+          fetch(`${url}?${queryParams}`)
+            .then((response) => response.text())
+            .then((data) => makeList(data));
+          }
+
+        function makeList(data) {
+          document.querySelector("table").setAttribute("style", "display: ;");
+          let tbody = document.querySelector("#aptlist");
+          let parser = new DOMParser();
+          const xml = parser.parseFromString(data, "application/xml");
+          // console.log(xml);
+          initTable();
+          let apts = xml.querySelectorAll("item");
+          apts.forEach((apt) => {
+            let tr = document.createElement("tr");
+
+            let nameTd = document.createElement("td");
+            nameTd.appendChild(document.createTextNode(apt.querySelector("아파트").textContent));
+            tr.appendChild(nameTd);
+
+            let floorTd = document.createElement("td");
+            floorTd.appendChild(document.createTextNode(apt.querySelector("층").textContent));
+            tr.appendChild(floorTd);
+
+            let areaTd = document.createElement("td");
+            areaTd.appendChild(document.createTextNode(apt.querySelector("전용면적").textContent));
+            tr.appendChild(areaTd);
+
+            let dongTd = document.createElement("td");
+            dongTd.appendChild(document.createTextNode(apt.querySelector("법정동").textContent));
+            tr.appendChild(dongTd);
+
+            let priceTd = document.createElement("td");
+            priceTd.appendChild(
+              document.createTextNode(apt.querySelector("거래금액").textContent + "만원")
+            );
+            priceTd.classList.add("text-end");
+            tr.appendChild(priceTd);
+
+            tbody.appendChild(tr);
+          });
+       
+        }
+
+        function initTable() {
+          let tbody = document.querySelector("#aptlist");
+          let len = tbody.rows.length;
+          for (let i = len - 1; i >= 0; i--) {
+            tbody.deleteRow(i);
+          }
+        }
+
+        document.querySelector('#opt').innerText = lo;
+      </script>
+      <!-- End Contact Section -->
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="container d-md-flex py-4">
+        <div class="me-md-auto text-center text-md-start">
+          <div class="copyright">
+            &copy; Copyright <strong><span>Tempo</span></strong
+            >. All Rights Reserved
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          </div>
+        </div>
+        <div class="social-links text-center text-md-right pt-3 pt-md-0">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+  </body>
+</html>

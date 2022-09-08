@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <script>
+      window.onload = function(){
+        var btn = document.querySelector('#btn');
+        btn.onclick = function(){
+          let ID = document.querySelector('#ID');
+          let Password = document.querySelector('#Password');
+          let Name = document.querySelector('#Name');
+          let Address = document.querySelector('#Address');
+          let Phone = document.querySelector('#Phone');
+          
+          localStorage.setItem("ID", ID.value);
+          localStorage.setItem("Password", Password.value);
+          localStorage.setItem("Name", Name.value);
+          localStorage.setItem("Address", Address.value);
+          localStorage.setItem("Phone", Phone.value);
+
+          alert('회원가입 되었습니다.');
+          location.href = './index.html';
+
+        }
+        var btn1 = document.querySelector("#btn1");
+        btn1.onclick = function () {
+          let ID = document.querySelector("#ID");
+          let Password = document.querySelector("#Password");
+          let Name = document.querySelector("#Name");
+          let Address = document.querySelector("#Address");
+          let Phone = document.querySelector("#Phone");
+
+          localStorage.removeItem("ID");
+          localStorage.removeItem("Password");
+          localStorage.removeItem("Name");
+          localStorage.removeItem("Address");
+          localStorage.removeItem("Phone");
+
+          alert("ID : "+ID.value+"의 정보가 삭제 되었습니다.");
+        };
+
+      }
+
+    </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center justify-content-between">
+        <h1 class="logo"><a href="index.html">Homes</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto " href="./index.html">Home</a></li>
+            <li><a class="nav-link scrollto" href="./index.html#info">Info</a></li>
+            <li><a class="nav-link scrollto" href="./index.html#news">News</a></li>
+            <li><a class="nav-link scrollto " href="./aptlist.html">Find</a></li>
+            <li><a class="nav-link scrollto active" href="./signup.html">SignUp</a></li>
+            <li><a class="nav-link scrollto" href="./login.html">Login</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- End Header -->
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+        <div class="text-md-start">
+          <h3>환영합니다</h3>
+
+          <p>
+            저희 웹 사이트는 고객님께 최고의 부동산 정보 제공서비스를 시행하고 있습니다.
+            <br>HOMES를 통해 고객님의 보금자리를 알아보세요.
+          </p>
+          <span style="color: white;">기존 회원이신가요?</span>
+          <br>
+          <a class="cta-btn" href="#">로그인 하기
+          </a>
+        </div>
+      </div>
+    </section>
+     <!-- End Cta Section -->
+    <div id="main" class="container d-flex flex-column vh-100">
+      <section id="contact " class="contact d-flex flex-column" style="height: 100%; justify-content: center;">
+        <div class="container">
+          <div class="section-title">
+            <h3>회원가입<br /><span >Where Is My Home</span></h3>
+            </div>
+          </div>
+          <div class="row mt-4 ">
+            <div class="col-lg-8 mt-5 mt-lg-0 w-65 p-3" style="margin: 0 auto;">
+              <form
+              onsubmit="return false"
+                action="index.html"
+                method="post"
+                role="form"
+                class="php-email-form"
+              >
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input
+                      type="text"
+                      name="ID"
+                      class="form-control"
+                      id="ID"
+                      placeholder="Your ID"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input
+                      type="Password"
+                      class="form-control"
+                      name="Password"
+                      id="Password"
+                      placeholder="Your Password"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="Name"
+                    id="Name"
+                    placeholder="Your Name"
+                    required
+                  />
+                </div>
+                <div class="form-group mt-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="Address"
+                    id="Address"
+                    placeholder="Your Address"
+                    required
+                  />
+                </div>
+                <div class="form-group mt-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="Phone"
+                    id="Phone"
+                    placeholder="Your Phone Number"
+                    required
+                  />
+                </div>
+              
+                <div class="text-center">
+                  <button id="btn" type="submit">SignUp information</button>
+                  <button id="btn1" type="submit">Delete information</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Contact Section -->
+    </div>
+    <!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="container d-md-flex py-4">
+        <div class="me-md-auto text-center text-md-start">
+          <div class="copyright">
+            &copy; Copyright <strong><span>SSAFY</span></strong
+            >. All Rights Reserved
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          </div>
+        </div>
+        <div class="social-links text-center text-md-right pt-3 pt-md-0">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

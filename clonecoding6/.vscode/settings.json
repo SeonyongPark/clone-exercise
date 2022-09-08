@@ -1,0 +1,7 @@
+{
+  "prettier.printWidth": 100,
+  "javascript.preferences.quoteStyle": "double",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "liveServer.settings.port": 5502
+}
